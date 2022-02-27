@@ -42,6 +42,7 @@ public class MainActivity extends AppCompatActivity {
     public void addToken(View v){
         boolean shoot = false;
         int numButton = Arrays.asList(buttons).indexOf(v.getId());
+        int flag = 0;
 
         textPlayer1 = (TextView) findViewById(R.id.t1);
         textPlayer2 = (TextView) findViewById(R.id.t2);
@@ -53,6 +54,7 @@ public class MainActivity extends AppCompatActivity {
             v.setBackgroundResource(R.drawable.circulo_verde);
             table[numButton] = 1;
             shoot = true;
+            flag = 2;
         }
 
         if(table[numButton] == 0 && player == 2){
@@ -61,6 +63,7 @@ public class MainActivity extends AppCompatActivity {
             textPlayer2.setVisibility(View.INVISIBLE);
             table[numButton] = 2;
             shoot = true;
+            flag = 2;
         }
 
         if (shoot){
@@ -70,11 +73,11 @@ public class MainActivity extends AppCompatActivity {
                 player=1;
             }
         }
-/*
-        if (table[numButton] == 0){
+
+        if ((table[numButton] == 1 || table[numButton] == 2) && flag < 1){
             Toast.makeText(MainActivity.this,"No se puede seleccionar esta casilla ocupada!",Toast.LENGTH_SHORT).show();
         }
-  */
+
     }
 
 }
