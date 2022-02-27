@@ -4,12 +4,10 @@ import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
 import android.view.View;
-import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
-
 import java.util.Arrays;
-import java.util.Random;
+
 
 public class MainActivity extends AppCompatActivity {
 
@@ -29,7 +27,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        textVictory = (TextView) findViewById(R.id.textVictory);
+        textVictory = findViewById(R.id.textVictory);
         textVictory.setVisibility(View.VISIBLE);
 
         buttons = new Integer[]{
@@ -44,8 +42,8 @@ public class MainActivity extends AppCompatActivity {
         int numButton = Arrays.asList(buttons).indexOf(v.getId());
         int flag = 0;
 
-        textPlayer1 = (TextView) findViewById(R.id.t1);
-        textPlayer2 = (TextView) findViewById(R.id.t2);
+        textPlayer1 = findViewById(R.id.t1);
+        textPlayer2 = findViewById(R.id.t2);
         textPlayer1.setVisibility(View.INVISIBLE);
         textPlayer2.setVisibility(View.VISIBLE);
         textVictory.setVisibility(View. INVISIBLE);
