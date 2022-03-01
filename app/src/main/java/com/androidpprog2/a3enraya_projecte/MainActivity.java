@@ -3,6 +3,7 @@ package com.androidpprog2.a3enraya_projecte;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.graphics.Color;
+import android.graphics.PorterDuff;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -66,14 +67,14 @@ public class MainActivity extends AppCompatActivity {
                 shoot = true;
                 flag = 2;
                 tokensAdded += 1;
-                checkState();
+                state = checkState();
                 finishGame();
             }
 
             if(state == 0){
                 if(table[numButton] == 0 && player == 2){
                     turn = -1;
-                    v.setBackgroundResource(R.drawable.cruz_verde);
+                    v.setBackgroundResource(R.drawable.ic_baseline_close_24);
                     textPlayer1.setVisibility(View.VISIBLE);
                     textPlayer2.setVisibility(View.INVISIBLE);
                     table[numButton] = -1;
@@ -108,11 +109,15 @@ public class MainActivity extends AppCompatActivity {
                 textWinPlayer.setVisibility(View.VISIBLE);
                 textWinPlayer.setText("JUGADOR 2 HA GANADO");
                 textWinPlayer.setTextColor(Color.RED);
+                textPlayer1.setVisibility(View.INVISIBLE);
+                textPlayer2.setVisibility(View.INVISIBLE);
             }
 
         }else if (state == 2){
             textWinPlayer.setVisibility(View.VISIBLE);
             textWinPlayer.setText("LOS JUGADORES HAN EMPATADO");
+            textPlayer1.setVisibility(View.INVISIBLE);
+            textPlayer2.setVisibility(View.INVISIBLE);
         }
     }
 
